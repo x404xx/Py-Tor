@@ -1,0 +1,127 @@
+Local IP: {'ip': '180.xx.xxx.xxx', 'country': 'Malaysia'}
+
+DEBUG:stem:System call: Tor\tor.exe --version (runtime: 0.03)
+INFO:root:Aug 20 12:05:37.000 [notice] Bootstrapped 0% (starting): Starting
+INFO:root:Aug 20 12:05:41.000 [notice] Bootstrapped 5% (conn): Connecting to a relay
+INFO:root:Aug 20 12:05:41.000 [notice] Bootstrapped 10% (conn_done): Connected to a relay
+INFO:root:Aug 20 12:05:41.000 [notice] Bootstrapped 14% (handshake): Handshaking with a relay
+INFO:root:Aug 20 12:05:42.000 [notice] Bootstrapped 15% (handshake_done): Handshake with a relay done
+INFO:root:Aug 20 12:05:42.000 [notice] Bootstrapped 75% (enough_dirinfo): Loaded enough directory info to build circuits
+INFO:root:Aug 20 12:05:42.000 [notice] Bootstrapped 90% (ap_handshake_done): Handshake finished with a relay to build circuits
+INFO:root:Aug 20 12:05:42.000 [notice] Bootstrapped 95% (circuit_create): Establishing a Tor circuit       
+INFO:root:Aug 20 12:05:45.000 [notice] Bootstrapped 100% (done): Done
+
+Tor IP: {'ip': '185.241.208.204', 'country': 'Poland'}
+
+INFO:root:___Starting renewing IP___
+INFO:root:Aug 20 12:05:57.000 [notice] Bootstrapped 0% (starting): Starting
+INFO:root:Aug 20 12:06:00.000 [notice] Bootstrapped 5% (conn): Connecting to a relay
+INFO:root:Aug 20 12:06:00.000 [notice] Bootstrapped 10% (conn_done): Connected to a relay
+INFO:root:Aug 20 12:06:00.000 [notice] Bootstrapped 14% (handshake): Handshaking with a relay
+INFO:root:Aug 20 12:06:01.000 [notice] Bootstrapped 15% (handshake_done): Handshake with a relay done
+INFO:root:Aug 20 12:06:01.000 [notice] Bootstrapped 75% (enough_dirinfo): Loaded enough directory info to build circuits
+INFO:root:Aug 20 12:06:01.000 [notice] Bootstrapped 90% (ap_handshake_done): Handshake finished with a relay to build circuits
+INFO:root:Aug 20 12:06:01.000 [notice] Bootstrapped 95% (circuit_create): Establishing a Tor circuit       
+INFO:root:Aug 20 12:06:02.000 [notice] Bootstrapped 100% (done): Done
+INFO:root:___Renewing IP Succeed___
+
+Tor IP: {'ip': '80.67.167.81', 'country': 'France'}
+
+{
+    "GET": {
+        "args": {},
+        "headers": {
+            "Accept": "*/*",
+            "Accept-Encoding": "gzip, deflate",
+            "Host": "httpbin.org",
+            "User-Agent": "python-requests/2.31.0",
+            "X-Amzn-Trace-Id": "Root=1-64e1912f-627da56e3584081d46a09f42"
+        },
+        "origin": "80.67.167.81",
+        "url": "https://httpbin.org/get"
+    },
+    "QUERY": {
+        "args": {
+            "param1": "value1",
+            "param2": "value2"
+        },
+        "headers": {
+            "Accept": "*/*",
+            "Accept-Encoding": "gzip, deflate",
+            "Host": "httpbin.org",
+            "User-Agent": "python-requests/2.31.0",
+            "X-Amzn-Trace-Id": "Root=1-64e19131-28b6acc72b300e6a05906f36"
+        },
+        "origin": "80.67.167.81",
+        "url": "https://httpbin.org/get?param1=value1&param2=value2"
+    },
+    "POST": {
+        "args": {},
+        "data": "{\"key\": \"value\"}",
+        "files": {},
+        "form": {},
+        "headers": {
+            "Accept": "*/*",
+            "Accept-Encoding": "gzip, deflate",
+            "Content-Length": "16",
+            "Content-Type": "application/json",
+            "Host": "httpbin.org",
+            "User-Agent": "python-requests/2.31.0",
+            "X-Amzn-Trace-Id": "Root=1-64e19136-3216fd3c29788476713d7637"
+        },
+        "json": {
+            "key": "value"
+        },
+        "origin": "80.67.167.81",
+        "url": "https://httpbin.org/post"
+    },
+    "PUT": {
+        "args": {},
+        "data": "{\"updated_key\": \"updated_value\"}",
+        "files": {},
+        "form": {},
+        "headers": {
+            "Accept": "*/*",
+            "Accept-Encoding": "gzip, deflate",
+            "Content-Length": "32",
+            "Content-Type": "application/json",
+            "Host": "httpbin.org",
+            "User-Agent": "python-requests/2.31.0",
+            "X-Amzn-Trace-Id": "Root=1-64e1915b-7874630e1b8357182215afe1"
+        },
+        "json": {
+            "updated_key": "updated_value"
+        },
+        "origin": "80.67.167.81",
+        "url": "https://httpbin.org/put"
+    },
+    "OPTIONS": {
+        "Date": "Sun, 20 Aug 2023 04:06:59 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "0",
+        "Connection": "keep-alive",
+        "Server": "gunicorn/19.9.0",
+        "Allow": "OPTIONS, HEAD, GET",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Max-Age": "3600"
+    },
+    "DELETE": {
+        "args": {},
+        "data": "",
+        "files": {},
+        "form": {},
+        "headers": {
+            "Accept": "*/*",
+            "Accept-Encoding": "gzip, deflate",
+            "Content-Length": "0",
+            "Host": "httpbin.org",
+            "User-Agent": "python-requests/2.31.0",
+            "X-Amzn-Trace-Id": "Root=1-64e19164-32cb35c605f331073d48322d"
+        },
+        "json": null,
+        "origin": "80.67.167.81",
+        "url": "https://httpbin.org/delete"
+    }
+}
