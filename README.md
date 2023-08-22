@@ -58,6 +58,10 @@ with TorService(bootstrap=bootstrap) as tor:
     response_put = tor.put('https://httpbin.org/put', json=data)
     result['PUT'] = response_put.json()
 
+    #! HEAD Request
+    response_head = tor.head('https://httpbin.org/get')
+    result['HEAD'] = dict(response_head.headers)
+
     #! OPTIONS Request
     response_options = tor.options("https://httpbin.org")
     result['OPTIONS'] = dict(response_options.headers)
