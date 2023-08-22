@@ -1,8 +1,8 @@
 import logging
-import re
 
 import requests
-import stem.process
+from stem.process import launch_tor_with_config
+from stem.util import term
 
 
 logging.basicConfig(level=logging.INFO)
@@ -47,15 +47,15 @@ class TorService:
         else:
             init_msg_handler = None
 
-        self.tor_process = stem.process.launch_tor_with_config(
+        self.tor_process = launch_tor_with_config(
             config={'SocksPort': str(self.socks_port)},
             init_msg_handler=init_msg_handler,
             tor_cmd=self.tor_path
         )
 
     def __handle_bootstrap_message(self, line):
-        if re.search('Bootstrapped', line):
-            logging.info(line)
+        if 'Bootstrapped' in line:
+            logger.info(term.format(line, term.Color.BLUE))
 
     def __kill_tor_process(self):
         if self.tor_process:
@@ -77,19 +77,19 @@ class TorService:
             response = self.session.request(method, url, **kwargs)
             return response
         except requests.RequestException as e:
-            logging.error(f'Request error: {e}')
+            logger.error(term.format(f'Request error: {e}', term.Color.RED))
             return None
 
     def renew_tor_ip(self):
-        logging.info('___Starting renewing IP___')
+        logger.info(term.format('___Starting renewing IP___', term.Color.YELLOW))
         current_ip = self.checking_ip()
         self.__kill_tor_process()
         self.__init_tor_process()
         new_ip = self.checking_ip()
         if new_ip['ip'] != current_ip['ip']:
-            logging.info('___Renewing IP Succeed___')
+            logger.info(term.format('___Renewing IP Succeed___', term.Color.YELLOW))
         else:
-            raise IPRenewalError('Renewing IP failed!')
+            raise IPRenewalError(term.format('Renewing IP failed!', term.Color.RED))
 
     def checking_ip(self, show_tor_ip=True):
         response = requests.get(self.IP_URL)
@@ -101,7 +101,7 @@ class TorService:
             response_json = response.json()
             tor_ip = {'ip': response_json['ip'], 'country': response_json['country']}
             if local_ip['ip'] == tor_ip['ip']:
-                raise IPProtectionError('Your IP is not protected!')
+                raise IPProtectionError(term.format('Your IP is not protected!', term.Color.RED))
             return tor_ip
         else:
             return local_ip
