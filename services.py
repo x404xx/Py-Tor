@@ -114,6 +114,9 @@ class TorService:
 
     def put(self, url, **kwargs):
         return self.__make_request('PUT', url, **kwargs)
+    
+    def head(self, url, **kwargs):
+        return self.__make_request('HEAD', url, **kwargs)
 
     def options(self, url, **kwargs):
         return self.__make_request('OPTIONS', url, **kwargs)

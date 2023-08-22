@@ -14,7 +14,7 @@ with TorService(bootstrap=bootstrap) as tor:
 
     result = {}
 
-    #! GET Requests
+    #! GET Request
     response_get = tor.get('https://httpbin.org/get')
     result['GET'] = response_get.json()
 
@@ -32,6 +32,10 @@ with TorService(bootstrap=bootstrap) as tor:
     data = {'updated_key': 'updated_value'}
     response_put = tor.put('https://httpbin.org/put', json=data)
     result['PUT'] = response_put.json()
+    
+    #! HEAD Request
+    response_head = tor.head('https://httpbin.org/get')
+    result['HEAD'] = dict(response_head.headers)
 
     #! OPTIONS Request
     response_options = tor.options("https://httpbin.org")

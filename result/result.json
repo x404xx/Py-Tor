@@ -6,9 +6,9 @@
             "Accept-Encoding": "gzip, deflate",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e1912f-627da56e3584081d46a09f42"
+            "X-Amzn-Trace-Id": "Root=1-64e47467-6c1bd0bd72aa58dc09c04b61"
         },
-        "origin": "80.67.167.81",
+        "origin": "185.29.9.149",
         "url": "https://httpbin.org/get"
     },
     "QUERY": {
@@ -21,9 +21,9 @@
             "Accept-Encoding": "gzip, deflate",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e19131-28b6acc72b300e6a05906f36"
+            "X-Amzn-Trace-Id": "Root=1-64e4746a-6ceb257471034ece63a261b2"
         },
-        "origin": "80.67.167.81",
+        "origin": "185.29.9.149",
         "url": "https://httpbin.org/get?param1=value1&param2=value2"
     },
     "POST": {
@@ -38,12 +38,12 @@
             "Content-Type": "application/json",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e19136-3216fd3c29788476713d7637"
+            "X-Amzn-Trace-Id": "Root=1-64e4748e-296ee84c355bd3724ba7f898"
         },
         "json": {
             "key": "value"
         },
-        "origin": "80.67.167.81",
+        "origin": "185.29.9.149",
         "url": "https://httpbin.org/post"
     },
     "PUT": {
@@ -58,25 +58,29 @@
             "Content-Type": "application/json",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e1915b-7874630e1b8357182215afe1"
+            "X-Amzn-Trace-Id": "Root=1-64e47491-12cb72dc531d30b21f47a14e"
         },
         "json": {
             "updated_key": "updated_value"
         },
-        "origin": "80.67.167.81",
+        "origin": "185.29.9.149",
         "url": "https://httpbin.org/put"
     },
-    "OPTIONS": {
-        "Date": "Sun, 20 Aug 2023 04:06:59 GMT",
-        "Content-Type": "text/html; charset=utf-8",
-        "Content-Length": "0",
+    "HEAD": {
+        "Date": "Tue, 22 Aug 2023 08:40:53 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "306",
         "Connection": "keep-alive",
         "Server": "gunicorn/19.9.0",
-        "Allow": "OPTIONS, HEAD, GET",
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        "Access-Control-Max-Age": "3600"
+        "Access-Control-Allow-Credentials": "true"
+    },
+    "OPTIONS": {
+        "Server": "awselb/2.0",
+        "Date": "Tue, 22 Aug 2023 08:41:04 GMT",
+        "Content-Type": "text/html",
+        "Content-Length": "132",
+        "Connection": "keep-alive"
     },
     "DELETE": {
         "args": {},
@@ -89,10 +93,10 @@
             "Content-Length": "0",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e19164-32cb35c605f331073d48322d"
+            "X-Amzn-Trace-Id": "Root=1-64e474a1-7bf774c507c7bb4d3138a1d6"
         },
         "json": null,
-        "origin": "80.67.167.81",
+        "origin": "185.29.9.149",
         "url": "https://httpbin.org/delete"
     }
 }
