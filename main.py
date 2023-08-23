@@ -45,4 +45,8 @@ with TorService(bootstrap=bootstrap) as tor:
     response_delete = tor.delete('https://httpbin.org/delete')
     result['DELETE'] = response_delete.json()
 
+    #! Testing ONION URL (Facebook onion from https://www.expressvpn.com/blog/best-onion-sites-on-dark-web/)
+    response_onion = tor.get('https://www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion/')
+    result['ONION'] = dict(response_onion.headers)
+
     print(dumps(result, indent=4))

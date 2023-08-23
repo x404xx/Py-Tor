@@ -65,8 +65,8 @@ class TorService:
     def __setup_session(self) -> requests.Session:
         session = requests.Session()
         session.proxies = {
-            'http': f'socks5://127.0.0.1:{self.socks_port}',
-            'https': f'socks5://127.0.0.1:{self.socks_port}'
+            'http': f'socks5h://127.0.0.1:{self.socks_port}',
+            'https': f'socks5h://127.0.0.1:{self.socks_port}'
         }
         return session
 
@@ -84,7 +84,8 @@ class TorService:
         logger.info(term.format('___Starting renewing IP___', term.Color.YELLOW))
         current_ip = self.checking_ip()
         self.__kill_tor_process()
-        self.__init_tor_process()
+        if not self.tor_process:
+            self.__init_tor_process()
         new_ip = self.checking_ip()
         if new_ip['ip'] != current_ip['ip']:
             logger.info(term.format('___Renewing IP Succeed___', term.Color.YELLOW))

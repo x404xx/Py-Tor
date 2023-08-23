@@ -6,9 +6,9 @@
             "Accept-Encoding": "gzip, deflate",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e47467-6c1bd0bd72aa58dc09c04b61"
+            "X-Amzn-Trace-Id": "Root=1-64e5778b-119e9b6a6c9b72db23c86702"
         },
-        "origin": "185.29.9.149",
+        "origin": "192.42.116.212",
         "url": "https://httpbin.org/get"
     },
     "QUERY": {
@@ -21,9 +21,9 @@
             "Accept-Encoding": "gzip, deflate",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e4746a-6ceb257471034ece63a261b2"
+            "X-Amzn-Trace-Id": "Root=1-64e57793-5c77aa794cd48c621a69f1e6"
         },
-        "origin": "185.29.9.149",
+        "origin": "192.42.116.212",
         "url": "https://httpbin.org/get?param1=value1&param2=value2"
     },
     "POST": {
@@ -38,12 +38,12 @@
             "Content-Type": "application/json",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e4748e-296ee84c355bd3724ba7f898"
+            "X-Amzn-Trace-Id": "Root=1-64e57797-7ce5cafe791b820666dd8f62"
         },
         "json": {
             "key": "value"
         },
-        "origin": "185.29.9.149",
+        "origin": "192.42.116.212",
         "url": "https://httpbin.org/post"
     },
     "PUT": {
@@ -58,29 +58,34 @@
             "Content-Type": "application/json",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e47491-12cb72dc531d30b21f47a14e"
+            "X-Amzn-Trace-Id": "Root=1-64e57799-3e994f356c5302473f904d03"
         },
         "json": {
             "updated_key": "updated_value"
         },
-        "origin": "185.29.9.149",
+        "origin": "192.42.116.212",
         "url": "https://httpbin.org/put"
     },
     "HEAD": {
-        "Date": "Tue, 22 Aug 2023 08:40:53 GMT",
+        "Date": "Wed, 23 Aug 2023 03:06:09 GMT",
         "Content-Type": "application/json",
-        "Content-Length": "306",
+        "Content-Length": "308",
         "Connection": "keep-alive",
         "Server": "gunicorn/19.9.0",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": "true"
     },
     "OPTIONS": {
-        "Server": "awselb/2.0",
-        "Date": "Tue, 22 Aug 2023 08:41:04 GMT",
-        "Content-Type": "text/html",
-        "Content-Length": "132",
-        "Connection": "keep-alive"
+        "Date": "Wed, 23 Aug 2023 03:06:52 GMT",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": "0",
+        "Connection": "keep-alive",
+        "Server": "gunicorn/19.9.0",
+        "Allow": "GET, OPTIONS, HEAD",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Max-Age": "3600"
     },
     "DELETE": {
         "args": {},
@@ -93,10 +98,34 @@
             "Content-Length": "0",
             "Host": "httpbin.org",
             "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e474a1-7bf774c507c7bb4d3138a1d6"
+            "X-Amzn-Trace-Id": "Root=1-64e577cd-28340a153959f6b86bb1cc1c"
         },
         "json": null,
-        "origin": "185.29.9.149",
+        "origin": "192.42.116.212",
         "url": "https://httpbin.org/delete"
+    },
+    "ONION": {
+        "Vary": "Accept-Encoding",
+        "Content-Encoding": "gzip",
+        "Set-Cookie": "fr=0EjB59cK9qrBX4p0W..Bk5XfV.D4.AAA.0.0.Bk5XfV.AWV5KonLzos; expires=Tue, 21-Nov-2023 03:07:01 GMT; Max-Age=7776000; path=/; domain=.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion; secure; httponly, sb=1XflZIgLEcIqkmvwNTyaB06v; expires=Thu, 26-Sep-2024 03:07:01 GMT; Max-Age=34560000; path=/; domain=.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion; secure; httponly",
+        "report-to": "{\"max_age\":259200,\"endpoints\":[{\"url\":\"https:\\/\\/www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion\\/ajax\\/browser_error_reports\\/?device_level=unknown\"}]}",
+        "Alt-Svc": "h2=\"facebook2bvqdfaehz6kubuj7dl7cwyhsfhgub3ppmsygk5cejctolyd.onion:443\"; ma=86400",
+        "content-security-policy": "default-src data: blob: 'self' 'unsafe-inline' 'unsafe-eval' https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion;script-src *.facebook.net *.google-analytics.com *.google.com 127.0.0.1:* 'unsafe-inline' blob: data: 'self' connect.facebook.net 'unsafe-eval' https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion;style-src fonts.googleapis.com data: 'unsafe-inline' 'self' https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;connect-src *.facebook.net wss://*.whatsapp.com:* ws://localhost:* blob: *.cdninstagram.com 'self' http://localhost:3103 v.whatsapp.net *.fb.com https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion wss://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion:* wss://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://attachment.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion;font-src data: *.gstatic.com https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;img-src data: *.tenor.co media.tenor.com *.cdninstagram.com *.giphy.com connect.facebook.net *.carriersignal.info blob: android-webview-video-poster: googleads.g.doubleclick.net www.googleadservices.com *.whatsapp.net *.fb.com *.oculuscdn.com https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion;media-src *.cdninstagram.com blob: https://*.giphy.com data: https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;frame-src *.doubleclick.net *.google.com www.googleadservices.com data: www.instagram.com https://paywithmybank.com https://sandbox.paywithmybank.com https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion;worker-src blob: data: https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;block-all-mixed-content;upgrade-insecure-requests;",
+        "document-policy": "force-load-at-top",
+        "permissions-policy": "accelerometer=(), ambient-light-sensor=(), bluetooth=(), camera=(self), gyroscope=(), hid=(), idle-detection=(), magnetometer=(), microphone=(self), midi=(), payment=(), screen-wake-lock=(), serial=(), usb=()",
+        "cross-origin-resource-policy": "cross-origin",
+        "cross-origin-opener-policy": "unsafe-none",
+        "Pragma": "no-cache",
+        "Cache-Control": "private, no-cache, no-store, must-revalidate",
+        "Expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "0",
+        "X-Frame-Options": "DENY",
+        "Strict-Transport-Security": "max-age=15552000; preload",
+        "Content-Type": "text/html; charset=\"utf-8\"",
+        "X-FB-Debug": "2oMjO2VR4+mIOcroAk8fFjE1rwA2+C3XX2N3N0AxSZmntJ2G3ArsAcCXhpyS8CJiphuASX6dFui/CbUuAMULNQ==",
+        "Date": "Wed, 23 Aug 2023 03:07:02 GMT",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive"
     }
 }
