@@ -3,29 +3,24 @@ import logging
 import requests
 from stem.process import launch_tor_with_config
 from stem.util import term
+from user_agent import generate_user_agent as UserAgent
 
-
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-
-class IPRenewalError(Exception):
-    pass
-
-class IPProtectionError(Exception):
-    pass
+from error import IPProtectionError, IPRenewalError
 
 
 class TorService:
     IP_URL = 'https://ipwho.is/'
+    STATUS_URL = 'https://check.torproject.org/'
 
     def __init__(
         self,
         tor_path=r'Tor\tor.exe',
         socks_port=9050,
-        bootstrap=True
+        bootstrap=True,
         ):
 
+        logging.basicConfig(level=logging.INFO)
+        self.logger = logging.getLogger(__name__)
         self.bootstrap = bootstrap
         self.tor_path = tor_path
         self.socks_port = socks_port
@@ -55,7 +50,7 @@ class TorService:
 
     def __handle_bootstrap_message(self, line):
         if 'Bootstrapped' in line:
-            logger.info(term.format(line, term.Color.BLUE))
+            self.logger.info(term.format(line, term.Color.BLUE))
 
     def __kill_tor_process(self):
         if self.tor_process:
@@ -64,6 +59,7 @@ class TorService:
 
     def __setup_session(self) -> requests.Session:
         session = requests.Session()
+        session.headers = {'User-Agent': UserAgent()}
         session.proxies = {
             'http': f'socks5h://127.0.0.1:{self.socks_port}',
             'https': f'socks5h://127.0.0.1:{self.socks_port}'
@@ -77,22 +73,22 @@ class TorService:
             response = self.session.request(method, url, **kwargs)
             return response
         except requests.RequestException as e:
-            logger.error(term.format(f'Request error: {e}', term.Color.RED))
+            self.logger.error(term.format(f'Request error: {e}', term.Color.RED))
             return None
 
     def renew_tor_ip(self):
-        logger.info(term.format('___Starting renewing IP___', term.Color.YELLOW))
-        current_ip = self.checking_ip()
+        self.logger.info(term.format('___Starting renewing IP___', term.Color.YELLOW))
+        current_ip = self.checking_ip(show_tor_ip=True)
         self.__kill_tor_process()
         if not self.tor_process:
             self.__init_tor_process()
-        new_ip = self.checking_ip()
+        new_ip = self.checking_ip(show_tor_ip=True)
         if new_ip['ip'] != current_ip['ip']:
-            logger.info(term.format('___Renewing IP Succeed___', term.Color.YELLOW))
+            self.logger.info(term.format('___Renewing IP Succeed___', term.Color.YELLOW))
         else:
             raise IPRenewalError(term.format('Renewing IP failed!', term.Color.RED))
 
-    def checking_ip(self, show_tor_ip=True):
+    def checking_ip(self, show_tor_ip=False):
         response = requests.get(self.IP_URL)
         response_json = response.json()
         local_ip = {'ip': response_json['ip'], 'country': response_json['country']}
@@ -107,6 +103,13 @@ class TorService:
         else:
             return local_ip
 
+    def checking_status(self):
+        response = self.get(self.STATUS_URL)
+        if 'Congratulations' in response.text:
+            return term.format('Congratulations! Configured to use Tor.', term.Color.GREEN)
+        else:
+            return term.format('Sorry! You are not using Tor.', term.Color.RED)
+
     def get(self, url, **kwargs):
         return self.__make_request('GET', url, **kwargs)
 
@@ -115,7 +118,7 @@ class TorService:
 
     def put(self, url, **kwargs):
         return self.__make_request('PUT', url, **kwargs)
-    
+
     def head(self, url, **kwargs):
         return self.__make_request('HEAD', url, **kwargs)
 
@@ -124,3 +127,7 @@ class TorService:
 
     def delete(self, url, **kwargs):
         return self.__make_request('DELETE', url, **kwargs)
+
+    def patch(self, url, **kwargs):
+        return self.__make_request('PATCH', url, **kwargs)
+

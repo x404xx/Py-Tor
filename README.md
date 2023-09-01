@@ -24,18 +24,23 @@ pip install -r requirements.txt
 
 ```python
 from json import dumps
+
 from services import TorService
 
 
 bootstrap = True # Set False if you dont want to print bootstrap message
 
 with TorService(bootstrap=bootstrap) as tor:
-    print(f'\nLocal IP: {tor.checking_ip(show_tor_ip=False)}\n')
-    print(f'\nTor IP: {tor.checking_ip()}\n')
+    local_ip = tor.checking_ip()
+    print(f"\nLocal IP: {local_ip['ip']} [{local_ip['country']}]\n")
+
+    tor_ip = tor.checking_ip(show_tor_ip=True)
+    print(f"\nTOR IP: {tor_ip['ip']} [{tor_ip['country']}]\nSTATUS: {tor.checking_status()}\n")
 
     #! Renewing IP
     tor.renew_tor_ip()
-    print(f'\nTor IP: {tor.checking_ip()}\n')
+    tor_ip = tor.checking_ip(show_tor_ip=True)
+    print(f"\nTOR IP: {tor_ip['ip']} [{tor_ip['country']}]\nSTATUS: {tor.checking_status()}\n")
 
     result = {}
 
@@ -47,6 +52,11 @@ with TorService(bootstrap=bootstrap) as tor:
     query_params = {'param1': 'value1', 'param2': 'value2'}
     response_query = tor.get('https://httpbin.org/get', params=query_params)
     result['QUERY'] = response_query.json()
+
+    #! GET Requests with Custom Headers
+    headers = {'Custom-Header': 'Custom-Value'}
+    response_header = tor.get('https://httpbin.org/headers', headers=headers)
+    result['HEADER'] = response_header.json()
 
     #! POST Request
     data = {'key': 'value'}
@@ -69,7 +79,12 @@ with TorService(bootstrap=bootstrap) as tor:
     #! DELETE Request
     response_delete = tor.delete('https://httpbin.org/delete')
     result['DELETE'] = response_delete.json()
-    
+
+    #! PATCH Request
+    data = {'key_to_update': 'new_value'}
+    response_patch = tor.patch('https://httpbin.org/patch', json=data)
+    result['PATCH'] = response_patch.json()
+
     #! Testing ONION URL (Facebook onion from https://www.expressvpn.com/blog/best-onion-sites-on-dark-web/)
     response_onion = tor.get('https://www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion/')
     result['ONION'] = dict(response_onion.headers)

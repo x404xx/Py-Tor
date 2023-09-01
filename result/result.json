@@ -2,13 +2,12 @@
     "GET": {
         "args": {},
         "headers": {
-            "Accept": "*/*",
-            "Accept-Encoding": "gzip, deflate",
+            "Accept-Encoding": "identity",
             "Host": "httpbin.org",
-            "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e5778b-119e9b6a6c9b72db23c86702"
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.81 Safari/537.36",
+            "X-Amzn-Trace-Id": "Root=1-64f14109-4f3ea5794544d98d1fc791d4"
         },
-        "origin": "192.42.116.212",
+        "origin": "185.220.101.22",
         "url": "https://httpbin.org/get"
     },
     "QUERY": {
@@ -17,14 +16,22 @@
             "param2": "value2"
         },
         "headers": {
-            "Accept": "*/*",
-            "Accept-Encoding": "gzip, deflate",
+            "Accept-Encoding": "identity",
             "Host": "httpbin.org",
-            "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e57793-5c77aa794cd48c621a69f1e6"
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.81 Safari/537.36",
+            "X-Amzn-Trace-Id": "Root=1-64f1410a-1465fb134227059f30cb47de"
         },
-        "origin": "192.42.116.212",
+        "origin": "185.220.101.22",
         "url": "https://httpbin.org/get?param1=value1&param2=value2"
+    },
+    "HEADER": {
+        "headers": {
+            "Accept-Encoding": "identity",
+            "Custom-Header": "Custom-Value",
+            "Host": "httpbin.org",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.81 Safari/537.36",
+            "X-Amzn-Trace-Id": "Root=1-64f1410b-09b0ab5125f254a2182608c4"
+        }
     },
     "POST": {
         "args": {},
@@ -32,18 +39,17 @@
         "files": {},
         "form": {},
         "headers": {
-            "Accept": "*/*",
-            "Accept-Encoding": "gzip, deflate",
+            "Accept-Encoding": "identity",
             "Content-Length": "16",
             "Content-Type": "application/json",
             "Host": "httpbin.org",
-            "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e57797-7ce5cafe791b820666dd8f62"
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.81 Safari/537.36",
+            "X-Amzn-Trace-Id": "Root=1-64f1410b-35162a4e515d9e393f6f4c27"
         },
         "json": {
             "key": "value"
         },
-        "origin": "192.42.116.212",
+        "origin": "185.220.101.22",
         "url": "https://httpbin.org/post"
     },
     "PUT": {
@@ -52,36 +58,35 @@
         "files": {},
         "form": {},
         "headers": {
-            "Accept": "*/*",
-            "Accept-Encoding": "gzip, deflate",
+            "Accept-Encoding": "identity",
             "Content-Length": "32",
             "Content-Type": "application/json",
             "Host": "httpbin.org",
-            "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e57799-3e994f356c5302473f904d03"
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.81 Safari/537.36",
+            "X-Amzn-Trace-Id": "Root=1-64f1410c-6051c49a79a7d0690018a24b"
         },
         "json": {
             "updated_key": "updated_value"
         },
-        "origin": "192.42.116.212",
+        "origin": "185.220.101.22",
         "url": "https://httpbin.org/put"
     },
     "HEAD": {
-        "Date": "Wed, 23 Aug 2023 03:06:09 GMT",
+        "Date": "Fri, 01 Sep 2023 01:40:29 GMT",
         "Content-Type": "application/json",
-        "Content-Length": "308",
+        "Content-Length": "379",
         "Connection": "keep-alive",
         "Server": "gunicorn/19.9.0",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": "true"
     },
     "OPTIONS": {
-        "Date": "Wed, 23 Aug 2023 03:06:52 GMT",
+        "Date": "Fri, 01 Sep 2023 01:40:29 GMT",
         "Content-Type": "text/html; charset=utf-8",
         "Content-Length": "0",
         "Connection": "keep-alive",
         "Server": "gunicorn/19.9.0",
-        "Allow": "GET, OPTIONS, HEAD",
+        "Allow": "HEAD, GET, OPTIONS",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
@@ -93,38 +98,51 @@
         "files": {},
         "form": {},
         "headers": {
-            "Accept": "*/*",
-            "Accept-Encoding": "gzip, deflate",
+            "Accept-Encoding": "identity",
             "Content-Length": "0",
             "Host": "httpbin.org",
-            "User-Agent": "python-requests/2.31.0",
-            "X-Amzn-Trace-Id": "Root=1-64e577cd-28340a153959f6b86bb1cc1c"
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.81 Safari/537.36",
+            "X-Amzn-Trace-Id": "Root=1-64f1410e-5de5d0ca7463aa1d4dd1dac5"
         },
         "json": null,
-        "origin": "192.42.116.212",
+        "origin": "185.220.101.22",
         "url": "https://httpbin.org/delete"
     },
+    "PATCH": {
+        "args": {},
+        "data": "{\"key_to_update\": \"new_value\"}",
+        "files": {},
+        "form": {},
+        "headers": {
+            "Accept-Encoding": "identity",
+            "Content-Length": "30",
+            "Content-Type": "application/json",
+            "Host": "httpbin.org",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.81 Safari/537.36",
+            "X-Amzn-Trace-Id": "Root=1-64f1410e-6a8d49f213796b56465f421a"
+        },
+        "json": {
+            "key_to_update": "new_value"
+        },
+        "origin": "185.220.101.22",
+        "url": "https://httpbin.org/patch"
+    },
     "ONION": {
-        "Vary": "Accept-Encoding",
-        "Content-Encoding": "gzip",
-        "Set-Cookie": "fr=0EjB59cK9qrBX4p0W..Bk5XfV.D4.AAA.0.0.Bk5XfV.AWV5KonLzos; expires=Tue, 21-Nov-2023 03:07:01 GMT; Max-Age=7776000; path=/; domain=.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion; secure; httponly, sb=1XflZIgLEcIqkmvwNTyaB06v; expires=Thu, 26-Sep-2024 03:07:01 GMT; Max-Age=34560000; path=/; domain=.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion; secure; httponly",
-        "report-to": "{\"max_age\":259200,\"endpoints\":[{\"url\":\"https:\\/\\/www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion\\/ajax\\/browser_error_reports\\/?device_level=unknown\"}]}",
-        "Alt-Svc": "h2=\"facebook2bvqdfaehz6kubuj7dl7cwyhsfhgub3ppmsygk5cejctolyd.onion:443\"; ma=86400",
-        "content-security-policy": "default-src data: blob: 'self' 'unsafe-inline' 'unsafe-eval' https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion;script-src *.facebook.net *.google-analytics.com *.google.com 127.0.0.1:* 'unsafe-inline' blob: data: 'self' connect.facebook.net 'unsafe-eval' https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion;style-src fonts.googleapis.com data: 'unsafe-inline' 'self' https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;connect-src *.facebook.net wss://*.whatsapp.com:* ws://localhost:* blob: *.cdninstagram.com 'self' http://localhost:3103 v.whatsapp.net *.fb.com https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion wss://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion:* wss://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://attachment.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion;font-src data: *.gstatic.com https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;img-src data: *.tenor.co media.tenor.com *.cdninstagram.com *.giphy.com connect.facebook.net *.carriersignal.info blob: android-webview-video-poster: googleads.g.doubleclick.net www.googleadservices.com *.whatsapp.net *.fb.com *.oculuscdn.com https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion;media-src *.cdninstagram.com blob: https://*.giphy.com data: https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;frame-src *.doubleclick.net *.google.com www.googleadservices.com data: www.instagram.com https://paywithmybank.com https://sandbox.paywithmybank.com https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion;worker-src blob: data: https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;block-all-mixed-content;upgrade-insecure-requests;",
-        "document-policy": "force-load-at-top",
-        "permissions-policy": "accelerometer=(), ambient-light-sensor=(), bluetooth=(), camera=(self), gyroscope=(), hid=(), idle-detection=(), magnetometer=(), microphone=(self), midi=(), payment=(), screen-wake-lock=(), serial=(), usb=()",
-        "cross-origin-resource-policy": "cross-origin",
-        "cross-origin-opener-policy": "unsafe-none",
         "Pragma": "no-cache",
         "Cache-Control": "private, no-cache, no-store, must-revalidate",
         "Expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+        "content-security-policy": "default-src data: blob: 'self' 'unsafe-inline' 'unsafe-eval' https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion;script-src *.facebook.net *.google-analytics.com *.google.com 127.0.0.1:* 'unsafe-inline' blob: data: 'self' connect.facebook.net 'unsafe-eval' https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion;style-src fonts.googleapis.com data: 'unsafe-inline' 'self' https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;connect-src *.facebook.net wss://*.whatsapp.com:* ws://localhost:* blob: *.cdninstagram.com 'self' http://localhost:3103 v.whatsapp.net *.fb.com https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion wss://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion:* wss://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://attachment.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion;font-src data: *.gstatic.com https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;img-src data: *.tenor.co media.tenor.com *.cdninstagram.com *.giphy.com connect.facebook.net *.carriersignal.info blob: android-webview-video-poster: googleads.g.doubleclick.net www.googleadservices.com *.whatsapp.net *.fb.com *.oculuscdn.com https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion;media-src *.cdninstagram.com blob: https://*.giphy.com data: https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;frame-src *.doubleclick.net *.google.com www.googleadservices.com data: www.instagram.com https://paywithmybank.com https://sandbox.paywithmybank.com https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion https://*.facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://facebooksg4bc7ddneq44pf4miux7o7oqdn2agstg5v3d45odhyu4sqd.onion https://*.facebookcooa4ldbat4g7iacswl3p2zrf5nuylvnhxn6kqolvojixwid.onion;worker-src blob: data: https://*.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion;block-all-mixed-content;upgrade-insecure-requests;",
+        "report-to": "{\"max_age\":259200,\"endpoints\":[{\"url\":\"https:\\/\\/www.facebookwkhpilnemxj7asaniu7vnjjbiltxjqhye3mhbshg7kx5tfyd.onion\\/ajax\\/browser_error_reports\\/?device_level=unknown\"}]}",
+        "X-Frame-Options": "DENY",
         "X-Content-Type-Options": "nosniff",
         "X-XSS-Protection": "0",
-        "X-Frame-Options": "DENY",
+        "cross-origin-opener-policy": "same-origin-allow-popups",
+        "Vary": "Sec-Fetch-Site, Sec-Fetch-Mode, Accept-Encoding",
         "Strict-Transport-Security": "max-age=15552000; preload",
         "Content-Type": "text/html; charset=\"utf-8\"",
-        "X-FB-Debug": "2oMjO2VR4+mIOcroAk8fFjE1rwA2+C3XX2N3N0AxSZmntJ2G3ArsAcCXhpyS8CJiphuASX6dFui/CbUuAMULNQ==",
-        "Date": "Wed, 23 Aug 2023 03:07:02 GMT",
+        "X-FB-Debug": "mY/FIu+fQjjcH40tkJMTvzd+G2w2IobdbvJ076XROps8yc2mP+ek9SULvpcjeKRRquKmJTerDPHoBvOL+pNsxg==",
+        "Date": "Fri, 01 Sep 2023 01:40:38 GMT",
+        "Alt-Svc": "h3=\":443\"; ma=86400",
         "Transfer-Encoding": "chunked",
         "Connection": "keep-alive"
     }
