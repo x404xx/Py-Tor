@@ -3,19 +3,14 @@ from json import dumps
 from services import TorService
 
 
-bootstrap = True # Set False if you dont want to print bootstrap message
+with TorService() as tor:
+    tor.local_ip #! Checking Local IP
+    tor.tor_ip #! Checking Tor IP
+    tor.checking_status #! Checking Tor status
 
-with TorService(bootstrap=bootstrap) as tor:
-    local_ip = tor.checking_ip()
-    print(f"\nLocal IP: {local_ip['ip']} [{local_ip['country']}]\n")
-
-    tor_ip = tor.checking_ip(show_tor_ip=True)
-    print(f"\nTOR IP: {tor_ip['ip']} [{tor_ip['country']}]\nSTATUS: {tor.checking_status()}\n")
-
-    #! Renewing IP
-    tor.renew_tor_ip()
-    tor_ip = tor.checking_ip(show_tor_ip=True)
-    print(f"\nTOR IP: {tor_ip['ip']} [{tor_ip['country']}]\nSTATUS: {tor.checking_status()}\n")
+    tor.renew_tor_ip #! Renew Tor IP
+    tor.tor_ip #! Checking Tor IP again to confirm IP changed
+    tor.checking_status #! Checking Tor status again to confirm using Tor
 
     result = {}
 

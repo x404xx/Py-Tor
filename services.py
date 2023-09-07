@@ -1,4 +1,5 @@
 import logging
+import re
 
 import requests
 from stem.process import launch_tor_with_config
@@ -16,12 +17,9 @@ class TorService:
         self,
         tor_path=r'Tor\tor.exe',
         socks_port=9050,
-        bootstrap=True,
         ):
 
-        logging.basicConfig(level=logging.INFO)
-        self.logger = logging.getLogger(__name__)
-        self.bootstrap = bootstrap
+        self.logger = self.__configure_logger
         self.tor_path = tor_path
         self.socks_port = socks_port
         self.tor_process = None
@@ -40,17 +38,20 @@ class TorService:
             self.session.close()
 
     def __init_tor_process(self):
-        init_msg_handler = self.__handle_bootstrap_message if self.bootstrap else None
         self.tor_process = launch_tor_with_config(
             config={'SocksPort': str(self.socks_port)},
-            init_msg_handler=init_msg_handler,
+            init_msg_handler=self.__handle_bootstrap_message,
             tor_cmd=self.tor_path
         )
         self.session = self.__setup_session()
 
     def __handle_bootstrap_message(self, line):
         if 'Bootstrapped' in line:
-            self.logger.info(term.format(line, term.Color.BLUE))
+            matches = re.search(r'\d+%.*\)', line)
+            percentage = matches.group()
+            if percentage is not None:
+                print(f'TOR Progress - {term.format(percentage, term.Color.BLUE)}', end='\r')
+            print(end='\033[K')
 
     def __setup_session(self) -> requests.Session:
         session = requests.Session()
@@ -71,39 +72,49 @@ class TorService:
             self.logger.error(term.format(f'Request error: {e}', term.Color.RED))
             return None
 
+    def __get_ip_info(self, show_tor_ip=False):
+        response = self.get(self.IP_URL) if show_tor_ip else requests.get(self.IP_URL)
+        response_json = response.json()
+        return {'ip': response_json['ip'], 'country': response_json['country']}
+
+    @property
+    def __configure_logger(self):
+        logging.basicConfig(level=logging.INFO)
+        return logging.getLogger(__name__)
+
+    @property
     def renew_tor_ip(self):
         self.logger.info(term.format('___Starting renewing IP___', term.Color.YELLOW))
-        current_ip = self.checking_ip(show_tor_ip=True)
+        current_ip = self.__get_ip_info(show_tor_ip=True)
         self.__close()
         if not self.tor_process:
             self.__init_tor_process()
-        new_ip = self.checking_ip(show_tor_ip=True)
+        new_ip = self.__get_ip_info(show_tor_ip=True)
         if new_ip['ip'] != current_ip['ip']:
             self.logger.info(term.format('___Renewing IP Succeed___', term.Color.YELLOW))
         else:
             raise IPRenewalError(term.format('Renewing IP failed!', term.Color.RED))
 
-    def checking_ip(self, show_tor_ip=False):
-        response = requests.get(self.IP_URL)
-        response_json = response.json()
-        local_ip = {'ip': response_json['ip'], 'country': response_json['country']}
+    @property
+    def local_ip(self):
+        local_ip = self.__get_ip_info()
+        self.logger.info(term.format(f'Local IP: {local_ip["ip"]} [{local_ip["country"]}]', term.Color.GREEN))
 
-        if show_tor_ip:
-            response = self.get(self.IP_URL)
-            response_json = response.json()
-            tor_ip = {'ip': response_json['ip'], 'country': response_json['country']}
-            if local_ip['ip'] == tor_ip['ip']:
-                raise IPProtectionError(term.format('Your IP is not protected!', term.Color.RED))
-            return tor_ip
-        else:
-            return local_ip
+    @property
+    def tor_ip(self):
+        local_ip = self.__get_ip_info()
+        tor_ip = self.__get_ip_info(show_tor_ip=True)
+        if local_ip['ip'] == tor_ip['ip']:
+            raise IPProtectionError(term.format('Your IP is not protected!', term.Color.RED))
+        self.logger.info(term.format(f'Tor IP: {tor_ip["ip"]} [{tor_ip["country"]}]', term.Color.GREEN))
 
+    @property
     def checking_status(self):
         response = self.get(self.STATUS_URL)
-        return (
-            term.format('Congratulations! Configured to use Tor.', term.Color.GREEN)
+        self.logger.info(
+            term.format('Congratulations! Tor network is successfully configured.', term.Color.MAGENTA)
             if 'Congratulations' in response.text
-            else term.format('Sorry! You are not using Tor.', term.Color.RED)
+            else term.format('Sorry! Failed to configure Tor network.', term.Color.RED)
         )
 
     def get(self, url, **kwargs):
@@ -126,4 +137,3 @@ class TorService:
 
     def patch(self, url, **kwargs):
         return self.__make_request('PATCH', url, **kwargs)
-
