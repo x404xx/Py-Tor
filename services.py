@@ -25,7 +25,7 @@ class TorService:
         self.tor_path = tor_path
         self.socks_port = socks_port
         self.tor_process = None
-        self.session = self.__setup_session()
+        self.session = None
 
     def __enter__(self):
         return self
@@ -34,28 +34,23 @@ class TorService:
         self.__close()
 
     def __close(self):
-        self.__kill_tor_process()
+        if self.tor_process and self.session:
+            self.tor_process.kill()
+            self.tor_process = None
+            self.session.close()
 
     def __init_tor_process(self):
-        if self.bootstrap:
-            init_msg_handler = self.__handle_bootstrap_message
-        else:
-            init_msg_handler = None
-
+        init_msg_handler = self.__handle_bootstrap_message if self.bootstrap else None
         self.tor_process = launch_tor_with_config(
             config={'SocksPort': str(self.socks_port)},
             init_msg_handler=init_msg_handler,
             tor_cmd=self.tor_path
         )
+        self.session = self.__setup_session()
 
     def __handle_bootstrap_message(self, line):
         if 'Bootstrapped' in line:
             self.logger.info(term.format(line, term.Color.BLUE))
-
-    def __kill_tor_process(self):
-        if self.tor_process:
-            self.tor_process.kill()
-            self.tor_process = None
 
     def __setup_session(self) -> requests.Session:
         session = requests.Session()
@@ -79,7 +74,7 @@ class TorService:
     def renew_tor_ip(self):
         self.logger.info(term.format('___Starting renewing IP___', term.Color.YELLOW))
         current_ip = self.checking_ip(show_tor_ip=True)
-        self.__kill_tor_process()
+        self.__close()
         if not self.tor_process:
             self.__init_tor_process()
         new_ip = self.checking_ip(show_tor_ip=True)
@@ -105,10 +100,11 @@ class TorService:
 
     def checking_status(self):
         response = self.get(self.STATUS_URL)
-        if 'Congratulations' in response.text:
-            return term.format('Congratulations! Configured to use Tor.', term.Color.GREEN)
-        else:
-            return term.format('Sorry! You are not using Tor.', term.Color.RED)
+        return (
+            term.format('Congratulations! Configured to use Tor.', term.Color.GREEN)
+            if 'Congratulations' in response.text
+            else term.format('Sorry! You are not using Tor.', term.Color.RED)
+        )
 
     def get(self, url, **kwargs):
         return self.__make_request('GET', url, **kwargs)
